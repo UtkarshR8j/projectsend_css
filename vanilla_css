@@ -37,6 +37,7 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: none; /* No shadows for a minimal look */
+  flex-wrap: wrap; /* Allow navbar items to wrap if necessary */
 }
 
 #header.navbar .navbar-brand {
@@ -45,12 +46,15 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   text-decoration: none;
+  white-space: nowrap; /* Prevent the brand name from breaking into multiple lines */
 }
 
 #header.navbar .nav {
   list-style-type: none;
   display: flex;
   margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* Ensure nav items wrap when necessary */
 }
 
 #header.navbar .nav > li {
@@ -65,6 +69,7 @@ body {
   font-weight: 500;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent text in nav items from breaking */
 }
 
 #header.navbar .nav > li > a:hover, 
