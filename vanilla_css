@@ -1,233 +1,227 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Root Variables for Global Styles */
+:root {
+    --body_background: url('https://d2p5uoj6rqd2yg.cloudfront.net/pexels-laura-penwell-309923-3608056.jpg');
+    --main_text: #ffffff; /* White text color for contrast */
+    --padding_top_main: 60px;
+    --global_box_shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, 0.12);
+    --font_body: "Verdana", sans-serif;
+    --font_heading: "Verdana", sans-serif;
+    --primary_color: #1dbf72;
 }
 
+/* General Body Styling */
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f5f5f5;
-  color: #333333;
+    background: var(--body_background) no-repeat center center fixed;
+    background-size: cover;
+    font-family: var(--font_body);
+    color: var(--main_text);
+    margin: 0;
+    padding: 0;
 }
 
-/* Header */
-header {
-  background-color: #ffffff;
-  padding: 20px 40px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Header Styling - Dark Transparent and Blurry */
+#header {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+    backdrop-filter: blur(5px); /* More pronounced blur effect */
+    box-shadow: var(--global_box_shadow); /* Light shadow for depth */
+    padding: 20px 40px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
 }
 
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Header Text and Links */
+#header, #header .navbar-brand, #header .nav-item, #header a {
+    color: var(--main_text); /* White text for readability */
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
-header .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #1dbf72;
+#header .nav-item {
+    margin-right: 25px;
 }
 
-header .nav-links {
-  display: flex;
-  gap: 20px;
+#header .navbar-brand {
+    display: flex;
+    align-items: center;
 }
 
-header .nav-links a {
-  text-decoration: none;
-  color: #333333;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.3s ease;
+/* Hide the original logo SVG */
+#header .navbar-brand svg {
+    display: none;
 }
 
-header .nav-links a:hover {
-  color: #1dbf72;
+/* Display the favicon as logo, aligned properly */
+#header .navbar-brand::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://public-blob.s3.us-east-1.amazonaws.com/longstraw-carbon-favicon-color.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    vertical-align: middle; /* Align logo vertically with the text */
 }
 
-header .send-btn {
-  background-color: #1dbf72;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Navbar Links Styling */
+#header .navbar-nav a {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header .send-btn:hover {
-  background-color: #17a45c;
+#header .navbar-nav a:hover {
+    background-color: var(--primary_color);
+    color: #ffffff;
 }
 
 /* Hero Section */
 .hero {
-  background-color: #1dbf72;
-  color: #ffffff;
-  text-align: center;
-  padding: 80px 20px;
+    padding: var(--padding_top_main) 20px;
+    text-align: center;
+    color: var(--main_text);
+    position: relative;
+    z-index: 5;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .hero p {
-  font-size: 18px;
-  font-weight: 400;
-  margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    max-width: 800px;
 }
 
 .hero .cta-btn {
-  background-color: #ffffff;
-  color: #1dbf72;
-  border: 2px solid #1dbf72;
-  padding: 12px 30px;
-  border-radius: 5px;
-  font-size: 18px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--primary_color);
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .hero .cta-btn:hover {
-  background-color: #1dbf72;
-  color: #ffffff;
+    background-color: #17a45c;
+    transform: scale(1.05);
 }
 
-/* Features Section */
+/* Feature Section */
 .features {
-  display: flex;
-  justify-content: space-around;
-  padding: 60px 20px;
+    display: flex;
+    justify-content: space-around;
+    padding: 80px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
 }
 
 .features .feature {
-  width: 30%;
-  text-align: center;
+    width: 30%;
+    text-align: center;
+    color: var(--main_text);
+    padding: 20px;
 }
 
 .features .feature img {
-  width: 50px;
-  margin-bottom: 20px;
+    width: 60px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.features .feature img:hover {
+    transform: scale(1.1);
 }
 
 .features .feature h3 {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .features .feature p {
-  font-size: 16px;
-  color: #666666;
+    font-size: 16px;
+    color: #ccc;
 }
 
-/* Project Information / Timeline */
-.timeline-section {
-  display: flex;
-  justify-content: space-between;
-  padding: 60px 20px;
-}
-
-.timeline-section .timeline {
-  width: 45%;
-}
-
-.timeline-section .timeline ul {
-  list-style: none;
-  padding-left: 20px;
-}
-
-.timeline-section .timeline li {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.timeline-section .timeline li::before {
-  content: "•";
-  font-size: 30px;
-  color: #1dbf72;
-  margin-right: 10px;
-}
-
-.timeline-section .description {
-  width: 45%;
-}
-
-/* Footer */
+/* Footer Styling */
 footer {
-  background-color: #333333;
-  color: #ffffff;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-footer .footer-links {
-  margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
 }
 
 footer .footer-links a {
-  text-decoration: none;
-  color: #ffffff;
-  margin: 0 15px;
-  font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 footer .footer-links a:hover {
-  color: #1dbf72;
+    color: var(--primary_color);
 }
 
 footer .social-links a {
-  text-decoration: none;
-  color: #ffffff;
-  margin: 0 10px;
-  font-size: 18px;
+    color: #fff;
+    margin: 0 10px;
+    font-size: 18px;
+    transition: color 0.3s ease;
 }
 
 footer .social-links a:hover {
-  color: #1dbf72;
+    color: var(--primary_color);
 }
 
 footer p {
-  font-size: 14px;
-  color: #bbb;
-  margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 20px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  header nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    #header .navbar-nav {
+        display: none;
+    }
 
-  .features {
-    flex-direction: column;
-    align-items: center;
-  }
+    .hero h1 {
+        font-size: 36px;
+    }
 
-  .features .feature {
-    width: 80%;
-    margin-bottom: 40px;
-  }
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .timeline-section {
-    flex-direction: column;
-  }
+    .features .feature {
+        width: 80%;
+        margin-bottom: 40px;
+    }
 
-  .timeline-section .timeline,
-  .timeline-section .description {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-
-  footer .footer-links a,
-  footer .social-links a {
-    font-size: 16px;
-  }
+    footer .footer-links a,
+    footer .social-links a {
+        font-size: 14px;
+    }
 }
