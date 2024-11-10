@@ -1,176 +1,160 @@
+/* Root variables for design consistency */
 :root {
-    /* Core design variables */
-    --body_background: url('https://d2p5uoj6rqd2yg.cloudfront.net/pexels-laura-penwell-309923-3608056.jpg');
-    --main_text: #ffffff;
-    --accent_color: #00c6ff;
-    --dark_accent: rgba(0, 0, 0, 0.3);
-    --light_accent: rgba(255, 255, 255, 0.2);
-    --font_body: 'Roboto', sans-serif;
-    --font_heading: 'Poppins', sans-serif;
-    --blur_strength: 6px;
-    --global_box_shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    --primary-color: #00c6ff;   /* Accent color for links, buttons, etc. */
+    --background-color: #121212; /* Dark background for better contrast */
+    --text-color: #f5f5f5;       /* Light text color for readability */
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+    --max-width: 1200px;          /* Max width for content containers */
+    --border-radius: 10px;        /* Rounded corners */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
 }
 
+/* Global reset */
 *,
 *::before,
 *::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+/* Body styling */
 body {
-    background: var(--body_background) no-repeat center center fixed;
-    background-size: cover;
-    font-family: var(--font_body);
-    color: var(--main_text);
-    margin: 0;
-    padding: 0;
-    line-height: 1.8; /* Improved line height for readability */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: var(--body-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--main_text);
-    font-family: var(--font_heading);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 20px 0 10px 0; /* Increased spacing for better separation */
-    transition: color 0.3s ease;
-}
-
-p, li, a {
-    font-size: 1.1rem; /* Increased font size for better readability */
-    line-height: 1.8;
-    color: var(--main_text);
-    transition: color 0.3s ease;
-}
-
+/* Link styling */
 a {
     text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--accent_color);
-    text-decoration: underline;
+    color: #0096cc; /* Slightly darker shade on hover */
 }
 
 /* Header */
-#header {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(var(--blur_strength));
-    box-shadow: var(--global_box_shadow);
-    padding: 20px 40px;
-    border-radius: 20px; /* More rounded for modern appeal */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+header {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(10px); /* Glassy effect */
 }
 
 /* Navbar */
-#header .navbar {
-    backdrop-filter: blur(var(--blur_strength));
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 12px 24px;
+nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.3s ease;
 }
 
-/* Navbar text and links */
-#header .navbar-brand,
-#header .nav-item,
-#header a {
-    color: var(--main_text);
-    font-family: var(--font_heading);
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
+/* Navbar links */
+nav a {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-left: 20px;
 }
 
-/* Hover effect for navbar links */
-#header a:hover {
-    color: var(--accent_color);
+nav a:first-child {
+    margin-left: 0;
 }
 
-/* Glass effect container */
-.glass-container {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(var(--blur_strength));
-    padding: 25px;
-    margin: 30px auto;
-    border-radius: 15px;
-    box-shadow: var(--global_box_shadow);
-    width: 85%;
-    max-width: 1100px;
-    transition: all 0.3s ease;
+/* Main Content */
+.main-content {
+    max-width: var(--max-width);
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-.glass-container:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+/* Headings */
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
 }
 
-/* Buttons */
+/* Paragraph */
+p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
 button, .btn {
-    background: var(--accent_color);
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
-    border-radius: 30px;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-button:hover,
-.btn:hover {
-    background: #0096cc;
-    transform: translateY(-4px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+button:hover, .btn:hover {
+    background-color: #0096cc;  /* Slightly darker on hover */
+    transform: translateY(-2px);
 }
 
-/* Form styling */
+/* Form Inputs */
 input[type="text"],
 input[type="email"],
 textarea {
-    background: rgba(255, 255, 255, 0.3);
-    color: var(--main_text);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    border-radius: 10px;
-    padding: 14px 20px;
     width: 100%;
-    font-size: 1rem;
-    font-family: var(--font_body);
-    transition: all 0.3s ease;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 2px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
-    border-color: var(--accent_color);
-    box-shadow: 0 0 12px var(--accent_color);
+    border-color: var(--primary-color);
+    outline: none;
 }
 
-/* Headings with smooth transitions */
-h1, h2, h3 {
-    transition: color 0.3s ease;
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
 }
 
-/* Image and background effects */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-/* Smooth transitions for links and buttons */
-a:hover, .btn:hover, input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-    transform: translateY(-2px); /* Soft lift effect */
-}
+    nav a {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 
-/* Smooth scroll effect */
-html {
-    scroll-behavior: smooth;
+    .main-content {
+        padding: 15px;
+    }
 }
