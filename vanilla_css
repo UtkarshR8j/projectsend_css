@@ -7,7 +7,7 @@
   --main_darken: #3f1f9c;
   --main_text: #666;
   --padding_top_main: 60px;
-  --font_body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font_body: "Verdana", sans-serif; /* Changed to Verdana */
 }
 
 /* General resets */
@@ -26,6 +26,7 @@ body {
   font-family: var(--font_body);
   height: 100%;
   margin-top: var(--padding_top_main);
+  min-height: 100vh; /* Ensures full page height */
 }
 
 /* Navbar (top bar) */
