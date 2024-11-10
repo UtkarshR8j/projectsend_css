@@ -44,16 +44,17 @@ body {
   margin-top: 60px; /* Adjusted for navbar height */
 }
 
-/* Simple, minimal navbar */
-#header.navbar {
-  background: var(--top_bar_background); /* Green top bar */
+/* Override bg-dark class and apply a minimal green navbar */
+#header.navbar.bg-dark {
+  background-color: var(--top_bar_background) !important; /* Override bg-dark with green */
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: none; /* No shadows */
 }
 
-#header.navbar .navbar-brand {
+#header.navbar.bg-dark .navbar-brand {
   color: white;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -61,17 +62,17 @@ body {
   text-decoration: none;
 }
 
-#header.navbar .nav {
+#header.navbar.bg-dark .nav {
   list-style-type: none;
   display: flex;
   margin: 0;
 }
 
-#header.navbar .nav > li {
+#header.navbar.bg-dark .nav > li {
   margin-left: 20px;
 }
 
-#header.navbar .nav > li > a {
+#header.navbar.bg-dark .nav > li > a {
   color: white;
   padding: 12px 16px;
   text-decoration: none;
@@ -81,8 +82,8 @@ body {
   transition: background-color 0.3s ease;
 }
 
-#header.navbar .nav > li > a:hover, 
-#header.navbar .nav > li > a:focus {
+#header.navbar.bg-dark .nav > li > a:hover, 
+#header.navbar.bg-dark .nav > li > a:focus {
   background-color: var(--top_bar_hover); /* Darker hover background */
 }
 
