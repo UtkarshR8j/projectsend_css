@@ -2,55 +2,104 @@
     --body_background: url('https://d2p5uoj6rqd2yg.cloudfront.net/pexels-laura-penwell-309923-3608056.jpg');
     --main_text: #ffffff; /* White text color for contrast */
     --padding_top_main: 60px;
-    --global_box_shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, 0.12);
+    --global_box_shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, 0.15); /* Soft shadow */
     --font_body: "Verdana", sans-serif;
     --font_heading: "Verdana", sans-serif;
+    --glass_bg: rgba(255, 255, 255, 0.1); /* Slightly opaque white for glass effect */
+    --header_bg: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+    --blur_strength: 10px; /* Stronger blur for glass effect */
 }
 
 body {
     background: var(--body_background) no-repeat center center fixed;
     background-size: cover;
     font-family: var(--font_body);
+    color: var(--main_text); /* Ensure all text is white by default */
+    margin: 0;
+    padding: 0;
 }
 
-/* Dark transparent and blurrier header */
+/* Apply glassmorphism to header */
 #header {
-    background-color: rgba(0, 0, 0, 1); /* Dark transparent background */
-    backdrop-filter: blur(2px); /* Moderate blur effect */
+    background-color: var(--header_bg); /* Dark transparent background */
+    backdrop-filter: blur(var(--blur_strength)); /* Increased blur for stronger glass effect */
     box-shadow: var(--global_box_shadow); /* Light shadow for depth */
+    padding: 20px;
 }
 
-/* Set white color for all header text */
+/* Header text color and link styling */
 #header, #header .navbar-brand, #header .nav-item, #header a {
-    color: #ffffff; /* White text color for readability on dark background */
+    color: var(--main_text); /* White text for readability */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
 }
 
-/* Adjust .bg-dark and .bg-light to match the dark transparency */
+/* Glassmorphism on navbar items */
+#header .navbar {
+    backdrop-filter: blur(var(--blur_strength)); /* Apply blur to navbar items */
+    border-radius: 10px; /* Rounded corners for the glass effect */
+    background-color: var(--glass_bg); /* Light glassy effect */
+    padding: 10px 20px; /* Padding for navbar */
+    box-shadow: var(--global_box_shadow); /* Soft shadow */
+}
+
+/* Adjust background color of bg-dark/bg-light elements for readability */
 .bg-dark, .bg-light {
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.4) !important; /* Slightly lighter dark background */
+    color: var(--main_text);
+    backdrop-filter: blur(var(--blur_strength)); /* Apply blur to background */
+    border-radius: 8px; /* Rounded corners */
 }
 
-/* Hide the original logo SVG */
+/* Ensure logo is visible with the updated styling */
 #header .navbar-brand svg {
     display: none;
 }
 
-/* Display the favicon as the logo, aligned properly */
 #header .navbar-brand::before {
     content: '';
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-image: url('https://public-blob.s3.us-east-1.amazonaws.com/longstraw-carbon-favicon-color.png');
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 10px;
-    vertical-align: middle; /* Align logo vertically with the text */
+    margin-right: 15px;
+    vertical-align: middle; /* Align logo vertically */
 }
 
-/* Adjust the text positioning to not overlap with the logo */
+/* Adjust navbar brand positioning */
 #header .navbar-brand {
     display: flex;
     align-items: center;
+}
+
+/* Add a glass effect to main content sections */
+.glass-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Light glass background */
+    backdrop-filter: blur(var(--blur_strength)); /* Blur effect for glassmorphism */
+    padding: 30px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: var(--global_box_shadow); /* Soft shadow */
+    margin: 20px 0;
+}
+
+/* Increase the legibility of headings */
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    font-family: var(--font_heading);
+}
+
+/* Style paragraphs and general text for readability */
+p, li, a {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: var(--main_text);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Soft text shadow for subtle depth */
+}
+
+/* Add a hover effect for links to improve interaction */
+a:hover {
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.85); /* Slightly faded hover effect */
 }
