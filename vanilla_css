@@ -1,13 +1,20 @@
 :root {
+    /* Core design variables */
     --body_background: url('https://d2p5uoj6rqd2yg.cloudfront.net/pexels-laura-penwell-309923-3608056.jpg');
     --main_text: #ffffff;
-    --accent_color: #00c6ff; /* Sleek accent color for links and buttons */
-    --dark_accent: rgba(0, 0, 0, 0.3); /* Darker transparent color for shadow */
-    --light_accent: rgba(255, 255, 255, 0.2); /* Light accent for subtle highlights */
+    --accent_color: #00c6ff;
+    --dark_accent: rgba(0, 0, 0, 0.3);
+    --light_accent: rgba(255, 255, 255, 0.2);
     --font_body: 'Roboto', sans-serif;
     --font_heading: 'Poppins', sans-serif;
-    --blur_strength: 6px; /* Medium blur for glassy effect */
-    --global_box_shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    --blur_strength: 6px;
+    --global_box_shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
@@ -17,144 +24,153 @@ body {
     color: var(--main_text);
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    line-height: 1.8; /* Improved line height for readability */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Create a modern, fluid header with smooth transitions */
-#header {
-    background: rgba(255, 255, 255, 0.2); /* Light, slightly opaque background */
-    backdrop-filter: blur(var(--blur_strength)); /* Glassmorphic blur effect */
-    box-shadow: var(--global_box_shadow); /* Soft shadow */
-    padding: 20px 30px;
-    border-radius: 15px; /* Rounded corners for a more modern feel */
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease;
-}
-
-#header:hover {
-    background: rgba(255, 255, 255, 0.4); /* Slightly darker on hover */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Deep shadow on hover */
-}
-
-/* Navbar elements */
-#header .navbar {
-    backdrop-filter: blur(var(--blur_strength)); /* Apply glass effect to navbar */
-    border-radius: 10px; /* Rounded navbar edges */
-    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.3s ease;
-}
-
-/* Header text and links */
-#header .navbar-brand, #header .nav-item, #header a {
-    color: var(--main_text); /* White text for high contrast */
-    font-family: var(--font_heading);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-/* Link hover effect */
-#header a:hover {
-    color: var(--accent_color); /* Change color to accent color on hover */
-    text-decoration: underline;
-}
-
-/* Remove default styling for navbar brand logo */
-#header .navbar-brand svg {
-    display: none;
-}
-
-/* Set favicon logo for navbar */
-#header .navbar-brand::before {
-    content: '';
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-image: url('https://public-blob.s3.us-east-1.amazonaws.com/longstraw-carbon-favicon-color.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 15px;
-    vertical-align: middle;
-}
-
-/* Body section containers with fluid, modern design */
-.glass-container {
-    background: rgba(255, 255, 255, 0.1); /* Light glass background */
-    backdrop-filter: blur(var(--blur_strength)); /* Subtle blur effect */
-    padding: 25px;
-    margin: 20px auto;
-    border-radius: 12px;
-    box-shadow: var(--global_box_shadow); /* Soft shadow */
-    width: 80%;
-    max-width: 1200px;
-    transition: all 0.3s ease-in-out;
-}
-
-.glass-container:hover {
-    transform: translateY(-10px); /* Slight lift effect on hover */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-}
-
-/* Styling for text elements */
 h1, h2, h3, h4, h5, h6 {
     color: var(--main_text);
     font-family: var(--font_heading);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin: 10px 0;
+    margin: 20px 0 10px 0; /* Increased spacing for better separation */
     transition: color 0.3s ease;
 }
 
-/* Paragraph text */
 p, li, a {
-    font-size: 1rem;
+    font-size: 1.1rem; /* Increased font size for better readability */
     line-height: 1.8;
     color: var(--main_text);
     transition: color 0.3s ease;
 }
 
-/* Buttons with sleek material feel */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent_color);
+    text-decoration: underline;
+}
+
+/* Header */
+#header {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(var(--blur_strength));
+    box-shadow: var(--global_box_shadow);
+    padding: 20px 40px;
+    border-radius: 20px; /* More rounded for modern appeal */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar */
+#header .navbar {
+    backdrop-filter: blur(var(--blur_strength));
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+/* Navbar text and links */
+#header .navbar-brand,
+#header .nav-item,
+#header a {
+    color: var(--main_text);
+    font-family: var(--font_heading);
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for navbar links */
+#header a:hover {
+    color: var(--accent_color);
+}
+
+/* Glass effect container */
+.glass-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(var(--blur_strength));
+    padding: 25px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: var(--global_box_shadow);
+    width: 85%;
+    max-width: 1100px;
+    transition: all 0.3s ease;
+}
+
+.glass-container:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
 button, .btn {
     background: var(--accent_color);
     color: #fff;
     border: none;
-    border-radius: 25px; /* Rounded button corners */
-    padding: 10px 20px;
-    font-size: 1rem;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-button:hover, .btn:hover {
-    background: #0096cc; /* Slightly darker shade on hover */
-    transform: translateY(-3px); /* Lift effect */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+button:hover,
+.btn:hover {
+    background: #0096cc;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Form inputs with modern design */
-input[type="text"], input[type="email"], textarea {
-    background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+/* Form styling */
+input[type="text"],
+input[type="email"],
+textarea {
+    background: rgba(255, 255, 255, 0.3);
     color: var(--main_text);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    padding: 12px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 14px 20px;
     width: 100%;
     font-size: 1rem;
     font-family: var(--font_body);
     transition: all 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
-    border-color: var(--accent_color); /* Highlight on focus */
-    box-shadow: 0 0 10px var(--accent_color); /* Add focus effect */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: var(--accent_color);
+    box-shadow: 0 0 12px var(--accent_color);
 }
 
-/* Additional hover effects for other elements */
+/* Headings with smooth transitions */
+h1, h2, h3 {
+    transition: color 0.3s ease;
+}
+
+/* Image and background effects */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Smooth transitions for links and buttons */
 a:hover, .btn:hover, input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
     transform: translateY(-2px); /* Soft lift effect */
+}
+
+/* Smooth scroll effect */
+html {
+    scroll-behavior: smooth;
 }
