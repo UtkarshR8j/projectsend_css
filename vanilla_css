@@ -1,60 +1,72 @@
 :root {
     --body_background: url('https://d2p5uoj6rqd2yg.cloudfront.net/pexels-laura-penwell-309923-3608056.jpg');
-    --main_text: #ffffff; /* White text color for contrast */
-    --padding_top_main: 60px;
-    --global_box_shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, 0.15); /* Soft shadow */
-    --font_body: "Verdana", sans-serif;
-    --font_heading: "Verdana", sans-serif;
-    --glass_bg: rgba(255, 255, 255, 0.1); /* Slightly opaque white for glass effect */
-    --header_bg: rgba(0, 0, 0, 0.5); /* Dark transparent background */
-    --blur_strength: 10px; /* Stronger blur for glass effect */
+    --main_text: #ffffff;
+    --accent_color: #00c6ff; /* Sleek accent color for links and buttons */
+    --dark_accent: rgba(0, 0, 0, 0.3); /* Darker transparent color for shadow */
+    --light_accent: rgba(255, 255, 255, 0.2); /* Light accent for subtle highlights */
+    --font_body: 'Roboto', sans-serif;
+    --font_heading: 'Poppins', sans-serif;
+    --blur_strength: 6px; /* Medium blur for glassy effect */
+    --global_box_shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
 }
 
 body {
     background: var(--body_background) no-repeat center center fixed;
     background-size: cover;
     font-family: var(--font_body);
-    color: var(--main_text); /* Ensure all text is white by default */
+    color: var(--main_text);
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
-/* Apply glassmorphism to header */
+/* Create a modern, fluid header with smooth transitions */
 #header {
-    background-color: var(--header_bg); /* Dark transparent background */
-    backdrop-filter: blur(var(--blur_strength)); /* Increased blur for stronger glass effect */
-    box-shadow: var(--global_box_shadow); /* Light shadow for depth */
-    padding: 20px;
-}
-
-/* Header text color and link styling */
-#header, #header .navbar-brand, #header .nav-item, #header a {
-    color: var(--main_text); /* White text for readability */
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
-}
-
-/* Glassmorphism on navbar items */
-#header .navbar {
-    backdrop-filter: blur(var(--blur_strength)); /* Apply blur to navbar items */
-    border-radius: 10px; /* Rounded corners for the glass effect */
-    background-color: var(--glass_bg); /* Light glassy effect */
-    padding: 10px 20px; /* Padding for navbar */
+    background: rgba(255, 255, 255, 0.2); /* Light, slightly opaque background */
+    backdrop-filter: blur(var(--blur_strength)); /* Glassmorphic blur effect */
     box-shadow: var(--global_box_shadow); /* Soft shadow */
+    padding: 20px 30px;
+    border-radius: 15px; /* Rounded corners for a more modern feel */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
-/* Adjust background color of bg-dark/bg-light elements for readability */
-.bg-dark, .bg-light {
-    background-color: rgba(0, 0, 0, 0.4) !important; /* Slightly lighter dark background */
-    color: var(--main_text);
-    backdrop-filter: blur(var(--blur_strength)); /* Apply blur to background */
-    border-radius: 8px; /* Rounded corners */
+#header:hover {
+    background: rgba(255, 255, 255, 0.4); /* Slightly darker on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Deep shadow on hover */
 }
 
-/* Ensure logo is visible with the updated styling */
+/* Navbar elements */
+#header .navbar {
+    backdrop-filter: blur(var(--blur_strength)); /* Apply glass effect to navbar */
+    border-radius: 10px; /* Rounded navbar edges */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+/* Header text and links */
+#header .navbar-brand, #header .nav-item, #header a {
+    color: var(--main_text); /* White text for high contrast */
+    font-family: var(--font_heading);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Link hover effect */
+#header a:hover {
+    color: var(--accent_color); /* Change color to accent color on hover */
+    text-decoration: underline;
+}
+
+/* Remove default styling for navbar brand logo */
 #header .navbar-brand svg {
     display: none;
 }
 
+/* Set favicon logo for navbar */
 #header .navbar-brand::before {
     content: '';
     display: inline-block;
@@ -64,42 +76,85 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 15px;
-    vertical-align: middle; /* Align logo vertically */
+    vertical-align: middle;
 }
 
-/* Adjust navbar brand positioning */
-#header .navbar-brand {
-    display: flex;
-    align-items: center;
-}
-
-/* Add a glass effect to main content sections */
+/* Body section containers with fluid, modern design */
 .glass-container {
-    background-color: rgba(255, 255, 255, 0.1); /* Light glass background */
-    backdrop-filter: blur(var(--blur_strength)); /* Blur effect for glassmorphism */
-    padding: 30px;
-    border-radius: 12px; /* Rounded corners */
+    background: rgba(255, 255, 255, 0.1); /* Light glass background */
+    backdrop-filter: blur(var(--blur_strength)); /* Subtle blur effect */
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 12px;
     box-shadow: var(--global_box_shadow); /* Soft shadow */
-    margin: 20px 0;
+    width: 80%;
+    max-width: 1200px;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Increase the legibility of headings */
+.glass-container:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Styling for text elements */
 h1, h2, h3, h4, h5, h6 {
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    color: var(--main_text);
     font-family: var(--font_heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 10px 0;
+    transition: color 0.3s ease;
 }
 
-/* Style paragraphs and general text for readability */
+/* Paragraph text */
 p, li, a {
     font-size: 1rem;
-    line-height: 1.6;
-    text-align: justify;
+    line-height: 1.8;
     color: var(--main_text);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Soft text shadow for subtle depth */
+    transition: color 0.3s ease;
 }
 
-/* Add a hover effect for links to improve interaction */
-a:hover {
-    text-decoration: underline;
-    color: rgba(255, 255, 255, 0.85); /* Slightly faded hover effect */
+/* Buttons with sleek material feel */
+button, .btn {
+    background: var(--accent_color);
+    color: #fff;
+    border: none;
+    border-radius: 25px; /* Rounded button corners */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover, .btn:hover {
+    background: #0096cc; /* Slightly darker shade on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Form inputs with modern design */
+input[type="text"], input[type="email"], textarea {
+    background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+    color: var(--main_text);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 12px 20px;
+    width: 100%;
+    font-size: 1rem;
+    font-family: var(--font_body);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: var(--accent_color); /* Highlight on focus */
+    box-shadow: 0 0 10px var(--accent_color); /* Add focus effect */
+}
+
+/* Additional hover effects for other elements */
+a:hover, .btn:hover, input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    transform: translateY(-2px); /* Soft lift effect */
 }
