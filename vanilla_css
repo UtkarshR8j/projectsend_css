@@ -2,12 +2,14 @@
   --body_background: #f5f5f9;
   --top_bar_background: #1dbf72; /* Green header */
   --top_bar_hover: #232835;
-  --main_color: #4c2ab6;
+  --main_color: #4c2ab6; /* Main primary color */
   --main_lighten: #633dd3;
   --main_darken: #3f1f9c;
   --main_text: #666;
   --padding_top_main: 60px;
   --font_body: "Verdana", sans-serif; /* Changed to Verdana */
+  --btn_color: #007bff; /* Button default blue color */
+  --btn_hover: #0056b3; /* Darker blue for hover */
 }
 
 /* General resets */
@@ -78,21 +80,34 @@ body {
 }
 
 /* Buttons */
-.btn-primary {
-  background-color: var(--main_color);
-  border: none;
-  padding: 12px 24px;
-  border-radius: 4px;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
   text-decoration: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap; /* Prevent text from breaking */
 }
 
-.btn-primary:hover, .btn-primary:focus {
-  background-color: var(--main_lighten);
+.btn-primary {
+  background-color: var(--main_color); /* Default color (purple) */
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--main_lighten); /* Lighter purple for hover */
+  transform: translateY(-2px); /* Add a subtle hover effect */
+}
+
+.btn-primary:active {
+  background-color: var(--main_darken); /* Darker purple when button is clicked */
+  transform: translateY(1px); /* Pressed effect */
 }
 
 /* Main Content */
