@@ -1,144 +1,176 @@
-:root {
-  --body_background: #f5f5f9;
-  --top_bar_background: #1dbf72; /* Green header */
-  --top_bar_hover: #232835;
-  --main_color: #4c2ab6;
-  --main_lighten: #633dd3;
-  --main_darken: #3f1f9c;
-  --main_text: #666;
-  --padding_top_main: 60px;
-  --global_box_shadow: 0 .125rem .375rem 0 rgba(161,172,184,.12);
-  --side_menu_width: 220px;
-  --side_menu_width_contracted: 45px;
-  --side_menu_background: #fff;
-  --side_menu_color: #3f3f47;
-  --side_menu_sub_color: #3f3f47;
-  --side_menu_sub_hover: #333339;
-  --side_menu_separator_border: none;
-  --side_menu_selected_parent_bg: #e7e0ff;
-  --side_menu_selected_parent_color: #696cff;
-  --side_menu_selected_subitems_background: #f2f2f2;
-  --side_menu_current_subitem_bg: #f5f5f9;
-  --side_menu_current_subitem_bg_hover: #e4e4ff;
-  --side_menu_contracted_color: #222;
-  --widget_title_color: #42454a;
-  --widget_title_background: #fff;
-  --widget_hover_background: #f0f0f0;
-  --font_body: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font_heading: var(--font_body);
-}
-
-/* Neomorphic effect styles */
+/* Global Reset and Base Styles */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: var(--body_background);
-  color: var(--main_text);
-  font-size: 0.95rem;
-  line-height: 1.2rem;
-  height: 100%;
-  padding: 0;
+html, body {
+  font-family: 'Verdana', sans-serif;
+  background-color: #f0f4f0;  /* Soft white/green background */
+  color: #304d30;  /* Dark green text */
+  line-height: 1.6;
   margin: 0;
-}
-
-body {
-  padding-top: 4.5rem;
-}
-
-/* Neomorphic header */
-#header.navbar {
-  background: var(--top_bar_background);
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.1), -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
-  border-radius: 12px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  padding: 12px 20px;
-}
-
-#header.navbar .navbar-brand {
-  color: white;
-  padding: 10px;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1), inset -4px -4px 10px rgba(255, 255, 255, 0.3); /* Neomorphic effect */
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease;
-}
-
-/* Navbar link styles */
-#header.navbar .nav > li > a {
-  color: #f0f0f0;
-  padding: 12px 16px;
-  text-transform: capitalize;
-  border-radius: 8px;
-  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
-  transition: all 0.3s ease;
-}
-
-#header.navbar .nav > li > a:hover, #header.navbar .nav > li > a:focus {
-  background: var(--top_bar_hover);
-  color: white;
-  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1), inset -4px -4px 10px rgba(255, 255, 255, 0.3); /* Neomorphic effect */
-  transform: scale(1.05); /* Slight zoom effect */
-}
-
-#header.navbar .nav > li > a.toggle_main_menu {
-  font-size: 2em;
   padding: 0;
-  background: none;
 }
 
-#header.navbar .nav > li > a.toggle_main_menu:hover,
-#header.navbar .nav > li > a.toggle_main_menu:focus {
-  background: none;
+/* Hide page-details and tri-layout-left.print-hidden immediately */
+#page-details, .tri-layout-left.print-hidden {
+  display: none !important;
 }
 
-/* Neomorphic button styles */
-.btn-primary {
-  background-color: var(--main_color);
-  border-color: var(--main_color);
-  padding: 12px 24px;
-  border-radius: 12px;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.1), -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
+/* Color Palette */
+:root {
+  --primary-bg: #f0f4f0;   /* Soft white/green background */
+  --topbar-bg: #7ac77a;     /* Green top bar background */
+  --card-bg: #ffffff;       /* White background for cards */
+  --text-primary: #304d30;   /* Dark green text */
+  --accent-color: #7ac77a;   /* Accent green */
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: var(--main_lighten) !important;
-  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
-}
-
-/* General Neomorphic inputs */
-input, select, textarea {
-  background: #e0e0e0;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
-  transition: all 0.3s ease;
-}
-
-input:focus, select:focus, textarea:focus {
-  background: #f0f0f0;
-  box-shadow: inset 6px 6px 12px rgba(0,0,0,0.1), inset -6px -6px 12px rgba(255,255,255,0.3); /* Neomorphic effect */
-}
-
-/* Footer */
-#footer {
-  margin: 50px 0 10px 0;
-  padding: 20px 0;
-  border-top: 1px solid #dedede;
+/* Top Bar */
+.topbar {
+  background-color: var(--topbar-bg);
+  color: #ffffff;
+  padding: 10px 20px;
   text-align: center;
-  color: #888;
-  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-#footer a {
-  color: #666;
-  text-decoration: underline;
+/* Main Background */
+html {
+  background-color: var(--primary-bg);
 }
 
-#footer .footer_links ul li a:hover {
-  color: var(--top_bar_background);
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin-bottom: 0.5em;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 1.75em; /* Smaller size for h1 */
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5, h6 {
+  font-size: 1em; /* For smaller titles */
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Light shadow for subtle depth */
+}
+
+/* Buttons */
+.button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: darkgreen;
+}
+
+/* Input Fields */
+input[type="text"], input[type="email"], input[type="search"], textarea, select {
+  background: var(--card-bg);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  color: var(--text-primary);
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="search"]:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--card-bg);
+  padding: 20px;
+  color: var(--text-primary);
+}
+
+.sidebar a {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+/* Table Styling */
+table.table {
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 10px;
+  border-collapse: collapse;
+}
+
+table.table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+table.table tr:hover {
+  background-color: var(--accent-color);
+}
+
+table.table td, table.table th {
+  padding: 10px;
+  text-align: left;
+}
+
+table.table th {
+  background-color: var(--topbar-bg);
+  color: white;
+}
+
+/* Blockquote */
+blockquote {
+  background-color: var(--card-bg);
+  border-left: 5px solid var(--accent-color);
+  padding: 15px;
+  color: var(--text-primary);
+  font-style: italic;
+  margin: 20px 0;
+}
+
+/* Links */
+a, a:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
