@@ -2,13 +2,13 @@
   --body_background: #f5f5f9;
   --top_bar_background: #1dbf72; /* Green header */
   --top_bar_hover: #232835;
-  --main_color: #4c2ab6; /* Main primary color */
-  --main_lighten: #633dd3;
-  --main_darken: #3f1f9c;
+  --main_color: #363537; /* Updated primary color to dark charcoal gray */
+  --main_lighten: #4e4d4c; /* Lighter shade of dark charcoal gray */
+  --main_darken: #2c2c2b; /* Darker shade of dark charcoal gray */
   --main_text: #666;
   --padding_top_main: 60px;
   --font_body: "Verdana", sans-serif; /* Changed to Verdana */
-  --btn_color: #007bff; /* Button default blue color */
+  --btn_color: #007bff; /* Button default blue color (for future buttons) */
   --btn_hover: #0056b3; /* Darker blue for hover */
 }
 
@@ -94,19 +94,19 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--main_color); /* Default color (purple) */
+  background-color: var(--main_color); /* Default color (dark charcoal gray) */
   color: white;
   border: none;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: var(--main_lighten); /* Lighter purple for hover */
+  background-color: var(--main_lighten); /* Lighter charcoal gray for hover */
   transform: translateY(-2px); /* Add a subtle hover effect */
 }
 
 .btn-primary:active {
-  background-color: var(--main_darken); /* Darker purple when button is clicked */
+  background-color: var(--main_darken); /* Darker charcoal gray when button is clicked */
   transform: translateY(1px); /* Pressed effect */
 }
 
