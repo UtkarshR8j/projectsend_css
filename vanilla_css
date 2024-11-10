@@ -1,0 +1,56 @@
+:root {
+    --body_background: url('https://d2p5uoj6rqd2yg.cloudfront.net/pexels-laura-penwell-309923-3608056.jpg');
+    --main_text: #ffffff; /* White text color for contrast */
+    --padding_top_main: 60px;
+    --global_box_shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, 0.12);
+    --font_body: "Verdana", sans-serif;
+    --font_heading: "Verdana", sans-serif;
+}
+
+body {
+    background: var(--body_background) no-repeat center center fixed;
+    background-size: cover;
+    font-family: var(--font_body);
+}
+
+/* Dark transparent and blurrier header */
+#header {
+    background-color: rgba(0, 0, 0, 1); /* Dark transparent background */
+    backdrop-filter: blur(2px); /* Moderate blur effect */
+    box-shadow: var(--global_box_shadow); /* Light shadow for depth */
+}
+
+/* Set white color for all header text */
+#header, #header .navbar-brand, #header .nav-item, #header a {
+    color: #ffffff; /* White text color for readability on dark background */
+}
+
+/* Adjust .bg-dark and .bg-light to match the dark transparency */
+.bg-dark, .bg-light {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: #ffffff;
+}
+
+/* Hide the original logo SVG */
+#header .navbar-brand svg {
+    display: none;
+}
+
+/* Display the favicon as the logo, aligned properly */
+#header .navbar-brand::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://public-blob.s3.us-east-1.amazonaws.com/longstraw-carbon-favicon-color.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    vertical-align: middle; /* Align logo vertically with the text */
+}
+
+/* Adjust the text positioning to not overlap with the logo */
+#header .navbar-brand {
+    display: flex;
+    align-items: center;
+}
