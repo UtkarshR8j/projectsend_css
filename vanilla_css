@@ -1,227 +1,165 @@
-/* Root Variables for Global Styles */
 :root {
-    --body_background: url('https://d2p5uoj6rqd2yg.cloudfront.net/pexels-laura-penwell-309923-3608056.jpg');
-    --main_text: #ffffff; /* White text color for contrast */
-    --padding_top_main: 60px;
-    --global_box_shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, 0.12);
-    --font_body: "Verdana", sans-serif;
-    --font_heading: "Verdana", sans-serif;
-    --primary_color: #1dbf72;
+  --body_background: #f5f5f9;
+  --top_bar_background: #1dbf72; /* Green header */
+  --top_bar_hover: #232835;
+  --main_color: #4c2ab6;
+  --main_lighten: #633dd3;
+  --main_darken: #3f1f9c;
+  --main_text: #666;
+  --padding_top_main: 60px;
+  --global_box_shadow: 0 .125rem .375rem 0 rgba(161,172,184,.12);
+  --side_menu_width: 220px;
+  --side_menu_width_contracted: 45px;
+  --side_menu_background: #fff;
+  --side_menu_color: #3f3f47;
+  --side_menu_sub_color: #3f3f47;
+  --side_menu_sub_hover: #333339;
+  --side_menu_separator_border: none;
+  --side_menu_selected_parent_bg: #e7e0ff;
+  --side_menu_selected_parent_color: #696cff;
+  --side_menu_selected_subitems_background: #f2f2f2;
+  --side_menu_current_subitem_bg: #f5f5f9;
+  --side_menu_current_subitem_bg_hover: #e4e4ff;
+  --side_menu_contracted_color: #222;
+  --widget_title_color: #42454a;
+  --widget_title_background: #fff;
+  --widget_hover_background: #f0f0f0;
+  --font_body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font_heading:var(--font_body);
 }
 
-/* General Body Styling */
+/* Neomorphic effect styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background: var(--body_background) no-repeat center center fixed;
-    background-size: cover;
-    font-family: var(--font_body);
-    color: var(--main_text);
-    margin: 0;
-    padding: 0;
+  background: var(--body_background);
+  color: var(--main_text);
+  font-size: 0.95rem;
+  line-height: 1.2rem;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-/* Header Styling - Dark Transparent and Blurry */
-#header {
-    background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
-    backdrop-filter: blur(5px); /* More pronounced blur effect */
-    box-shadow: var(--global_box_shadow); /* Light shadow for depth */
-    padding: 20px 40px;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
+body {
+  padding-top: 4.5rem;
 }
 
-/* Header Text and Links */
-#header, #header .navbar-brand, #header .nav-item, #header a {
-    color: var(--main_text); /* White text for readability */
-    text-transform: uppercase;
-    font-weight: 600;
+/* Neomorphic header */
+#header.navbar {
+  background: var(--top_bar_background);
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.1), -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
 }
 
-#header .nav-item {
-    margin-right: 25px;
+#header.navbar .navbar-brand {
+  color: white;
+  padding: 10px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.1), inset -4px -4px 10px rgba(255, 255, 255, 0.3); /* Neomorphic effect */
+  border-radius: 8px;
 }
 
-#header .navbar-brand {
-    display: flex;
-    align-items: center;
+#header.navbar .nav > li > a {
+  color: #f0f0f0;
+  padding: 12px 16px;
+  text-transform: capitalize;
+  border-radius: 8px;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-/* Hide the original logo SVG */
-#header .navbar-brand svg {
-    display: none;
+#header.navbar .nav > li > a:hover, #header.navbar .nav > li > a:focus {
+  background: var(--top_bar_hover);
+  color: white;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-/* Display the favicon as logo, aligned properly */
-#header .navbar-brand::before {
-    content: '';
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url('https://public-blob.s3.us-east-1.amazonaws.com/longstraw-carbon-favicon-color.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-right: 10px;
-    vertical-align: middle; /* Align logo vertically with the text */
+#header.navbar .nav > li > a.toggle_main_menu {
+  font-size: 2em;
+  padding: 0;
+  background: none;
 }
 
-/* Navbar Links Styling */
-#header .navbar-nav a {
-    color: #fff;
-    font-size: 18px;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+#header.navbar .nav > li > a.toggle_main_menu:hover,
+#header.navbar .nav > li > a.toggle_main_menu:focus {
+  background: none;
 }
 
-#header .navbar-nav a:hover {
-    background-color: var(--primary_color);
-    color: #ffffff;
+/* Neomorphic button styles */
+.btn-primary {
+  background-color: var(--main_color);
+  border-color: var(--main_color);
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.1), -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-/* Hero Section */
-.hero {
-    padding: var(--padding_top_main) 20px;
-    text-align: center;
-    color: var(--main_text);
-    position: relative;
-    z-index: 5;
-    min-height: 70vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: var(--main_lighten) !important;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+.white-box {
+  background-color: #fff;
+  box-shadow: 8px 8px 20px rgba(0,0,0,0.1), -8px -8px 20px rgba(255,255,255,0.3); /* Neomorphic effect */
+  border-radius: 16px;
+  padding: 20px;
 }
 
-.hero p {
-    font-size: 20px;
-    font-weight: 300;
-    margin-bottom: 40px;
-    max-width: 800px;
+/* General Neomorphic inputs */
+input, select, textarea {
+  background: #e0e0e0;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
+  transition: all 0.3s ease;
 }
 
-.hero .cta-btn {
-    background-color: var(--primary_color);
-    color: #ffffff;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-size: 18px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+input:focus, select:focus, textarea:focus {
+  background: #f0f0f0;
+  box-shadow: inset 6px 6px 12px rgba(0,0,0,0.1), inset -6px -6px 12px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-.hero .cta-btn:hover {
-    background-color: #17a45c;
-    transform: scale(1.05);
+/* Neomorphic hover effects */
+.btn-pslight {
+  background-color: #ddd;
+  border-radius: 12px;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-/* Feature Section */
-.features {
-    display: flex;
-    justify-content: space-around;
-    padding: 80px 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
+.btn-pslight:hover {
+  background-color: #ccc;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-.features .feature {
-    width: 30%;
-    text-align: center;
-    color: var(--main_text);
-    padding: 20px;
+.widget-title {
+  background-color: white;
+  color: var(--widget_title_color);
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
+  border-radius: 12px;
+  padding: 12px;
 }
 
-.features .feature img {
-    width: 60px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
+/* Footer */
+#footer {
+  margin: 50px 0 10px 0;
+  padding: 20px 0;
+  border-top: 1px solid #dedede;
+  text-align: center;
+  color: #888;
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.1), inset -4px -4px 10px rgba(255,255,255,0.3); /* Neomorphic effect */
 }
 
-.features .feature img:hover {
-    transform: scale(1.1);
+#footer a {
+  color: #666;
+  text-decoration: underline;
 }
 
-.features .feature h3 {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.features .feature p {
-    font-size: 16px;
-    color: #ccc;
-}
-
-/* Footer Styling */
-footer {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-    position: relative;
-}
-
-footer .footer-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-footer .footer-links a:hover {
-    color: var(--primary_color);
-}
-
-footer .social-links a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-footer .social-links a:hover {
-    color: var(--primary_color);
-}
-
-footer p {
-    font-size: 14px;
-    color: #ccc;
-    margin-top: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #header .navbar-nav {
-        display: none;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-
-    .features {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .features .feature {
-        width: 80%;
-        margin-bottom: 40px;
-    }
-
-    footer .footer-links a,
-    footer .social-links a {
-        font-size: 14px;
-    }
+#footer .footer_links ul li a:hover {
+  color: #1dbf72;
 }
