@@ -29,7 +29,7 @@ body {
 }
 
 /* Navbar (top bar) */
-#header.navbar.bg-dark {
+#header.navbar {
   background: var(--top_bar_background); /* Green background */
   padding: 12px 20px;
   display: flex;
@@ -38,7 +38,7 @@ body {
   box-shadow: none; /* No shadows for a minimal look */
 }
 
-#header.navbar.bg-dark .navbar-brand {
+#header.navbar .navbar-brand {
   color: white;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -46,17 +46,17 @@ body {
   text-decoration: none;
 }
 
-#header.navbar.bg-dark .nav {
+#header.navbar .nav {
   list-style-type: none;
   display: flex;
   margin: 0;
 }
 
-#header.navbar.bg-dark .nav > li {
+#header.navbar .nav > li {
   margin-left: 20px;
 }
 
-#header.navbar.bg-dark .nav > li > a {
+#header.navbar .nav > li > a {
   color: white;
   padding: 12px 16px;
   text-decoration: none;
@@ -66,8 +66,8 @@ body {
   transition: background-color 0.3s ease;
 }
 
-#header.navbar.bg-dark .nav > li > a:hover, 
-#header.navbar.bg-dark .nav > li > a:focus {
+#header.navbar .nav > li > a:hover, 
+#header.navbar .nav > li > a:focus {
   background-color: var(--top_bar_hover); /* Darker hover background */
 }
 
