@@ -1,0 +1,189 @@
+/* Neomorphic Design CSS */
+
+/* Color Variables */
+:root {
+    --body-background: #f5f5f9;
+    --top-bar-background: #1dbf72; /* Green header */
+    --top-bar-hover: #232835;
+    --main-color: #363537; /* Dark charcoal gray */
+    --main-lighten: #4e4d4c; /* Lighter charcoal gray */
+    --main-darken: #2c2c2b; /* Darker charcoal gray */
+    --main-text: #666;
+    --padding-top-main: 60px;
+    --font-body: "Verdana", sans-serif; /* Font */
+    --btn-color: #007bff; /* Button default blue */
+    --btn-hover: #0056b3; /* Darker blue hover */
+    --shadow-light: rgba(255, 255, 255, 0.7);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Global Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: url('https://public-blob.s3.us-east-1.amazonaws.com/pexels-laura-penwell-309923-3608056.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--main-text);
+    font-family: var(--font-body);
+    height: 100%;
+    margin-top: var(--padding-top-main);
+    min-height: 100vh;
+  }
+  
+  /* Navbar (Top Bar) */
+  #header.navbar {
+    background: var(--top-bar-background);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: none;
+    flex-wrap: wrap;
+  }
+  
+  #header.navbar .navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  #header.navbar .nav {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  
+  #header.navbar .nav > li {
+    margin-left: 20px;
+  }
+  
+  #header.navbar .nav > li > a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #header.navbar .nav > li > a:hover, #header.navbar .nav > li > a:focus {
+    background-color: var(--top-bar-hover);
+  }
+  
+  /* Neomorphic Box Styling */
+  .neomorph-box {
+    background: var(--body-background);
+    border-radius: 12px;
+    box-shadow:
+      8px 8px 16px var(--shadow-dark),
+      -8px -8px 16px var(--shadow-light);
+    padding: 20px;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    box-shadow:
+      4px 4px 8px var(--shadow-dark),
+      -4px -4px 8px var(--shadow-light);
+  }
+  
+  .btn-primary:hover, .btn-primary:focus {
+    background-color: var(--main-lighten);
+    transform: translateY(-2px);
+  }
+  
+  .btn-primary:active {
+    background-color: var(--main-darken);
+    transform: translateY(1px);
+  }
+  
+  /* Main Content */
+  .main-content {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 
+      10px 10px 20px var(--shadow-dark),
+      -10px -10px 20px var(--shadow-light);
+  }
+  
+  /* Footer */
+  #footer {
+    margin: 50px 0 10px 0;
+    padding: 20px 0;
+    border-top: 1px solid #dedede;
+    text-align: center;
+    color: #888;
+  }
+  
+  #footer a {
+    color: #666;
+    text-decoration: underline;
+  }
+  
+  #footer .footer_links ul li a:hover {
+    color: var(--top-bar-background);
+  }
+  
+  /* Additional Neomorphic Elements */
+  .input-neomorph, .card-neomorph {
+    background: var(--body-background);
+    border-radius: 12px;
+    box-shadow:
+      inset 4px 4px 8px var(--shadow-dark),
+      inset -4px -4px 8px var(--shadow-light);
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--main-text);
+  }
+  
+  .input-neomorph:focus {
+    outline: none;
+    box-shadow:
+      8px 8px 16px var(--shadow-dark),
+      -8px -8px 16px var(--shadow-light);
+  }
+  
+  /* Icon Buttons */
+  .icon-btn {
+    font-size: 2rem;
+    color: var(--main-color);
+    box-shadow:
+      4px 4px 8px var(--shadow-dark),
+      -4px -4px 8px var(--shadow-light);
+    padding: 10px;
+    border-radius: 50%;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .icon-btn:hover {
+    box-shadow:
+      inset 4px 4px 8px var(--shadow-dark),
+      inset -4px -4px 8px var(--shadow-light);
+  }
+  
