@@ -6,7 +6,7 @@
   --background-color: #f0f2f5;
   --top-bar-background: #1dbf72; /* Green header */
   --top-bar-hover: #232835;
-  --main-color: #363537; /* Dark charcoal gray */
+  --main-color: #9b9b9b; /* Dark charcoal gray */
   --main-lighten: #4e4d4c; /* Lighter charcoal gray */
   --main-darken: #2c2c2b; /* Darker charcoal gray */
   --main-text: #666;
